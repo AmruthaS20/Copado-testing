@@ -19,7 +19,7 @@ Get Data From DB
    Log    DB DATA: ${case_data}
    ${is_dict}=    Evaluate    isinstance(${case_data}, dict)
    Log    DB IS DICT: ${is_dict}
-   Return    ${case_data}
+   RETURN    ${case_data}
 
     # Path must be relative for Copado executor
 
