@@ -1,5 +1,8 @@
 *** Variables ***
-${Case_test}
+&{DB_DATA}
+...    1002=&{CASE_1002}
+
+&{CASE_1002}
 ...        Case_Number=00001002
 ...        Name=SKood
 ...        Subject=Caso de ejemplo 3: no es posible realizar un seguimiento de nuestro pedido
