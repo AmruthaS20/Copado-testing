@@ -30,12 +30,9 @@ Setup Browser
     SetConfig             Delay                       0.3
    # for my reference
       
-   Suite Setup With DB And UI
-   Create Mock SQLite DB
+   
    OpenBrowser    ${URL}    chrome
-   Maximize Browser Window
-End Suite
-   Close All Browsers
+   
       
 
 
