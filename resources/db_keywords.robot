@@ -10,7 +10,16 @@ Resource  ../resources/db_data.robot
 Get Data From DB
 
     [Arguments]    ${case_number}   
-    Fail           THIS IS MOCK DBKEYWORD
+    
+   IF    '${case_id}' == '00001002'
+       ${case_data}=    Copy Dictionary    &{DB_CASE_00001002}
+   ELSE
+       Fail    Case ID not found in mock DB
+   END
+   Log    DB DATA: ${case_data}
+   ${is_dict}=    Evaluate    isinstance(${case_data}, dict)
+   Log    DB IS DICT: ${is_dict}
+   Return    ${case_data}
 
     # Path must be relative for Copado executor
 
