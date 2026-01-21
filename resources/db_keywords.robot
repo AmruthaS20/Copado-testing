@@ -1,6 +1,4 @@
 *** Settings ***
-
-Library    DatabaseLibrary
 Library    Collections
 Resource  ../resources/db_data.robot  
 
