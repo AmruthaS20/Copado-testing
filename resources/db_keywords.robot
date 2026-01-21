@@ -11,6 +11,7 @@ Get Data From DB
     
    IF    ${Case_Number} == '00001002'
        ${case_data}=    Copy Dictionary    &{DB_CASE_00001002}
+       Set Test Variable    ${case_data}    ${temp}
  
    ELSE
        Fail    Case ID not found in mock DB
