@@ -20,7 +20,7 @@ Get Data from DB
     [Arguments]    ${case_number}
 
    ${rows}=    Query
-   ...    SELECT case_number, status, priority
+   ...    SELECT case_number, Name, Subject, Status, Date_Time
    ...    FROM cases
    ...    WHERE case_number ${case_number}
    
@@ -28,6 +28,8 @@ Get Data from DB
    ${row}=    Set Variable    ${rows[0]}
    ${data}=    Create Dictionary
    ...    Case_Number=${row}[0]
-   ...    Status=${row}[1]
-   ...    Priority=${row}[2]
+   ...    Name=${row}[1]
+   ...    Subject=${row}[2]
+   ...    Status=${row}{3}
+   ...    Date_Time=${row}{4}
    RETURN    ${data}
