@@ -7,7 +7,7 @@ Library    DatabaseLibrary
 
 Get Data From DB
 
-    [Arguments]    ${case_number}
+    [Arguments]    ${case_number}    ${case_id}
 
     # Path must be relative for Copado executor
 
@@ -28,4 +28,11 @@ Get Data From DB
     Disconnect From Database
 
     RETURN    ${db_data}
+    
+       IF    '${case_id}' == '00001002'
+       ${case_data}=    Set Variable    &{DB_CASE_00001002}
+   ELSE
+       Fail    Case ID not found in mock DB
+   END
+   [Return]    ${case_data}
  
