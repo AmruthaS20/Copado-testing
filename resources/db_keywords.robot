@@ -1,6 +1,7 @@
 *** Settings ***
 Library    DatabaseLibrary
 Library    OperatingSystem
+Library    String
 Resource    ../db_data.robot
 
 *** Variables ***
@@ -19,7 +20,8 @@ Get Data from DB
 
    # --- SQL for design clarity 
 
-   ${query}=    Set Variable
+    ${normalized_case}=    Replace String    ${case_number}    0000    ${EMPTY}
+     ${query}=    Set Variable
    ...    SELECT case_number, name, status, subject, date_time
    ...    FROM case_test
    ...    WHERE case_number='${case_number}';
