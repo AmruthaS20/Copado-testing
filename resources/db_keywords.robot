@@ -11,7 +11,7 @@ Get Data From DB
 
     [Arguments]    ${Case_Number}   
     
-   IF    '${Case_Number}' == '00001002'
+   IF    ${Case_Number} == '00001002'
        ${case_data}=    Copy Dictionary    &{DB_CASE_00001002}
  
    ELSE
