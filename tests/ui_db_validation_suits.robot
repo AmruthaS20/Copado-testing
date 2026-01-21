@@ -26,5 +26,8 @@ UI_DB_Validation_Test
    Click Text      Cases
 
    ${ui_data}=    Get UI Case Data
+    Log           ${ui_data}
+ 
    ${db_data}=    Get Data from DB    ${ui_data}[Case_Number]
+   Log            ${db_data}
    Compare UI And DB Data    ${ui_data}    ${db_data}
