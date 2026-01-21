@@ -13,6 +13,7 @@ Get Data From DB
     
    IF    '${case_id}' == '00001002'
        ${case_data}=    Copy Dictionary    &{DB_CASE_00001002}
+ 
    ELSE
        Fail    Case ID not found in mock DB
    END
