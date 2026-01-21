@@ -25,9 +25,6 @@ UI_DB_Validation_Test
    Verify Text     Cases
    Click Text      Cases
 
-   [Documentation]    Validate UI fields against DB and fail with clear mismatch
    ${ui_data}=    Get UI Case Data
-   Connect To Cloud DB
-   ${db_data}=    Get DB Customer Data   ${ui_data}[customer_id]
+   ${db_data}=    Get Data from DB    ${ui_data}[Case_Number]
    Compare UI And DB Data    ${ui_data}    ${db_data}
-
