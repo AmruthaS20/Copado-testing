@@ -8,7 +8,7 @@ Resource  ../resources/db_data.robot
 
 Get Data From DB
 
-    [Arguments]    ${case_number}    ${Case_Number}
+    [Arguments]    ${case_number}   
 
     # Path must be relative for Copado executor
 
