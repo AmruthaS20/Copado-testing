@@ -9,10 +9,10 @@ Resource          ../resources/db_keywords.robot
 Resource          ../resources/compare_keywords.robot
 Resource    ../resources/common.robot
 Resource       ../resources/db_keywords.robot
-Suite Setup    Create Mock SQLite DB
+Suite Setup    OpenBrowser    ${URL}    chrome
 
 
-    
+     
 Suite Teardown   Close Browser
 
 *** Variables ***
@@ -20,6 +20,7 @@ ${URL}    https://login.salesforce.com
 
 *** Test Cases ***
 UI_DB_Validation_Test
+    
      Appstate        Login     
    Sleep           10
    
