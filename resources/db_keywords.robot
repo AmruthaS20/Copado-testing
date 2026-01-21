@@ -19,16 +19,15 @@ Get Data from DB
 
     [Arguments]    ${case_number}
 
-   # --- SQL for design clarity 
-
-    ${normalized_case}=    Convert To Integer    ${case_number}
-     ${query}=    Set Variable
-   ...    SELECT case_number, name, status, subject, date_time
-   ...    FROM case_test
-   ...    WHERE case_number='${case_number}';
-   Log    SQL intended for execution: ${query}
+   ${rows}=    Query
+   ...    SELECT case_number, status, priority
+   ...    FROM cases
+   ...    WHERE case_number ${case_number}
    
-  
-   ${key}=    Set Variable    CASE_${case_number}
-   ${db_data}=    Get Variable Value    &{${key}}
-   RETURN    ${db_data}
+   Should Not Be Empty    ${rows}
+   ${row}=    Set Variable    ${rows[0]}
+   ${data}=    Create Dictionary
+   ...    Case_Number=${row}[0]
+   ...    Status=${row}[1]
+   ...    Priority=${row}[2]
+   RETURN    ${data}
