@@ -28,12 +28,12 @@ Setup Browser
     # adds a delay of 0.3 between keywords. This is helpful in cloud with limited resources.
     SetConfig             Delay                       0.3
    # for my reference
-  Suite Setup With DB And UI
+      Suite Setup With DB And UI
    Create Mock SQLite DB
    OpenBrowser    ${URL}    chrome
    Maximize Browser Window
 
-End Suite
+    End Suite
    Close All Browsers
       
 
