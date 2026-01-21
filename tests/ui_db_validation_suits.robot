@@ -31,6 +31,6 @@ UI_DB_Validation_Test
    ${ui_data}=    Get UI Case Data
     Log           ${ui_data}
  
-   ${db_data}=    Get Data from DB    ${ui_data}[Case_Number]
+   ${db_data}=    Get Data From DB    ${ui_data}[Case_Number]
    Log            ${db_data}
    Compare UI And DB Data    ${ui_data}    ${db_data}
