@@ -10,7 +10,7 @@ Create Mock SQLite DB
 Get Data From DB
 
     [Arguments]    ${case_number}
-    ${DB_PATH}=    Set Variable    ${CURDIR}/../resources/mock.db
+    ${DB_PATH}=    Set Variable    ${CURDIR}/../resources/create_db.sql
    Log    Using DB path: ${DB_PATH}
    Connect To Database    sqlite3    ${DB_PATH}
    ${query}=    Set Variable    SELECT case_number, name, subject, status, date_time FROM cases WHERE case_number='${case_number}';
