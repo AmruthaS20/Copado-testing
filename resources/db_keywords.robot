@@ -2,19 +2,6 @@
 
 Library    DatabaseLibrary
 
-*** Keywords ***
-Create Mock SQLite DB
-   Connect To Database    sqlite3    ${CURDIR}/mock.db
-   Execute Sql Script     ${CURDIR}/create_db.sql
-   Disconnect From Database
-Get Data From DB
-
-    [Arguments]    ${case_number}
-    *** Settings ***
-
-Library    DatabaseLibrary
-
-Library    BuiltIn
 
 *** Keywords ***
 
