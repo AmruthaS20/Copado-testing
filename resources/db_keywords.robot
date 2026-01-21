@@ -19,7 +19,7 @@ Get Data From DB
 
     # ✅ Dummy SQL – does NOT affect logic
 
-    ${query}=    Set Variable    SELECT 1;
+    ${query}=    Set Variable    SELECT 00001002;
 
     ${db_data}=    Query    ${query}
 
