@@ -9,7 +9,7 @@ Resource  ../resources/db_data.robot
 
 Get Data From DB
 
-    [Arguments]    ${case_number}   
+    [Arguments]    ${Case_Number}   
     
    IF    '${Case_Number}' == '00001002'
        ${case_data}=    Copy Dictionary    &{DB_CASE_00001002}
