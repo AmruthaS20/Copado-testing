@@ -2,6 +2,7 @@
 Library    DatabaseLibrary
 Library    OperatingSystem
 Library    String
+Library    Collections
 Resource    ../db_data.robot
 
 *** Variables ***
