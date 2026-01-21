@@ -1,0 +1,1 @@
+Log to console    Connecting to DB 
