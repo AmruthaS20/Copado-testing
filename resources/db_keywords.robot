@@ -22,7 +22,7 @@ Get Data from DB
    ${rows}=    Query
    ...    SELECT case_number, Name, Subject, Status, Date_Time
    ...    FROM cases
-   ...    WHERE case_number= '${case_number}''
+   ...    WHERE case_number= '${case_number}'
    
    Should Not Be Empty    ${rows}
    ${row}=    Set Variable    ${rows[0]}
