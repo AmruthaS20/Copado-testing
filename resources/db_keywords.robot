@@ -1,5 +1,7 @@
 *** Settings ***
 Library    DatabaseLibrary
+Library    OperatingSystem
+Resource    ../db_data.robot
 
 *** Variables ***
 
@@ -13,28 +15,17 @@ ${DB_NAME}    postgres
 *** Keywords ***
 Connect To Cloud DB
 
-    connect To Database
-    ...    ${DB_ENGINE}
-    ...    ${DB_NAME}
-    ...    ${DB_HOST}
-    ...    ${DB_USER}
-    ...    ${DB_PASSWORD}
-    ...    ${DB_PORT}
+    [Arguments]    ${case_number}
+
+   # --- SQL for design clarity 
    
-#Get DB Record Data
-Get DB Customer Data
-    [Arguments]    ${record_id}
-    ${query}=    Set Variable
-    ...    SELECT Case_Number,name,status,Subject,Date_Time
-    ...    FROM Cases
-    ...    WHERE Case_Number='${record_id}';
-    ${rows}=    Query    ${query}
-    Disconnect From Database
-    ${row}=    Set Variable    ${rows}[0]
-    ${db_data}=    Create Dictionary
-    ...    Case_Number=${row}[0]
-    ...    Name=${row}[1]
-    ...    Status=${row}[2]
-    ...    Subject=${row}[3]
-    ...    Date_Timee=${row}[4]
-    RETURN    ${db_data}
+   ${query}=    Set Variable
+   ...    SELECT case_number, name, status, subject, date_time
+   ...    FROM case_test
+   ...    WHERE case_number='${case_number}';
+   Log    SQL intended for execution: ${query}
+   
+  
+   ${key}=    Set Variable    CASE_${case_number}
+   ${db_data}=    Get Variable Value    &{${key}}
+   RETURN    ${db_data}
