@@ -20,7 +20,7 @@ Get Data from DB
 
    # --- SQL for design clarity 
 
-    ${normalized_case}=    Replace String    ${case_number}    0000    ${EMPTY}
+    ${normalized_case}=    Convert To Integer    ${case_number}
      ${query}=    Set Variable
    ...    SELECT case_number, name, status, subject, date_time
    ...    FROM case_test
