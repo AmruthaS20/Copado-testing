@@ -1,7 +1,7 @@
 *** Settings ***
 
 Library    DatabaseLibrary
-Resorces    db_data.robot
+Resource  ../resources/db_data.robot  
 
 
 *** Keywords ***
