@@ -30,7 +30,7 @@ Get Data From DB
 
     RETURN    ${db_data}
     
-       IF    '${case_id}' == '00001002'
+       IF    '${Case_Number}' == '00001002'
        ${case_data}=    Set Variable    &{DB_CASE_00001002}
    ELSE
        Fail    Case ID not found in mock DB
