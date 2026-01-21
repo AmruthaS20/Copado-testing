@@ -35,5 +35,6 @@ Get Data From DB
    ELSE
        Fail    Case ID not found in mock DB
    END
+   Log         DB DATA TYPE: ${case_data}
    RETURN    ${case_data}
  
