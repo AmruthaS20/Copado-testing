@@ -10,32 +10,33 @@ Resource  ../resources/db_data.robot
 Get Data From DB
 
     [Arguments]    ${case_number}   
+    Fail           THIS IS MOCK DBKEYWORD
 
     # Path must be relative for Copado executor
 
-    ${DB_PATH}=    Set Variable    ${CURDIR}/../resources/mock.db
+    #${DB_PATH}=    Set Variable    ${CURDIR}/../resources/mock.db
 
-    Log    Using DB path: ${DB_PATH}
+    #Log    Using DB path: ${DB_PATH}
 
-    Connect To Database    sqlite3    ${DB_PATH}
+    #Connect To Database    sqlite3    ${DB_PATH}
 
     # ✅ Dummy SQL – does NOT affect logic
 
-    ${query}=    Set Variable    SELECT 00001002;
+    #${query}=    Set Variable    SELECT 00001002;
 
-    ${db_data}=    Query    ${query}
+    #${db_data}=    Query    ${query}
 
-    Log    DB RESULT: ${db_data}
+    #Log    DB RESULT: ${db_data}
 
-    Disconnect From Database
+    #Disconnect From Database
 
-    RETURN    ${db_data}
+    #RETURN    ${db_data}
     
-       IF    '${Case_Number}' == '00001002'
-       ${case_data}=    Copy Dictionary    &{DB_CASE_00001002}
-   ELSE
-       Fail    Case ID not found in mock DB
-   END
-   Log         DB DATA TYPE: ${case_data}
-   RETURN    ${case_data}
+    #   IF    '${Case_Number}' == '00001002'
+     #  ${case_data}=    Copy Dictionary    &{DB_CASE_00001002}
+   #ELSE
+    #   Fail    Case ID not found in mock DB
+   #END
+   #Log         DB DATA TYPE: ${case_data}
+   #RETURN    ${case_data}
  
