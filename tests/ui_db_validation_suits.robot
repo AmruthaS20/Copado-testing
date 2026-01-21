@@ -12,7 +12,7 @@ Resource       ../resources/db_keywords.robot
 Suite Setup    Create Mock SQLite DB
 
 
-#Suite Setup        OpenBrowser   ${URL}    chrome
+    
 Suite Teardown   Close Browser
 
 *** Variables ***
