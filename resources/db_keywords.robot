@@ -13,12 +13,12 @@ ${DB_ENGINE}    psycopg2
 ${DB_NAME}    postgres
 
 *** Keywords ***
-Connect To Cloud DB
+Get Data from DB
 
     [Arguments]    ${case_number}
 
    # --- SQL for design clarity 
-   
+
    ${query}=    Set Variable
    ...    SELECT case_number, name, status, subject, date_time
    ...    FROM case_test
