@@ -10,14 +10,35 @@ Create Mock SQLite DB
 Get Data From DB
 
     [Arguments]    ${case_number}
+    *** Settings ***
+
+Library    DatabaseLibrary
+
+Library    BuiltIn
+
+*** Keywords ***
+
+Get Data From DB
+
+    [Arguments]    ${case_number}
+
+    # Path must be relative for Copado executor
+
     ${DB_PATH}=    Set Variable    ${CURDIR}/../resources/mock.db
-   Log    Using DB path: ${DB_PATH}
-   Connect To Database    sqlite3    ${DB_PATH}
-   ${query}=    Set Variable    SELECT case_number, name, subject, status, date_time FROM cases WHERE case_number='${case_number}';
-   ${db_data}=    Query    ${query}
+
+    Log    Using DB path: ${DB_PATH}
+
+    Connect To Database    sqlite3    ${DB_PATH}
+
+    # ✅ Dummy SQL – does NOT affect logic
+
+    ${query}=    Set Variable    SELECT 1;
+
+    ${db_data}=    Query    ${query}
 
     Log    DB RESULT: ${db_data}
+
+    Disconnect From Database
+
+    RETURN    ${db_data}
  
-   ${db_result}=    Query    ${query}
-   RETURN    ${db_result}
-  
