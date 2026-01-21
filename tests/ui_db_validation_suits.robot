@@ -6,7 +6,7 @@ Library    DatabaseLibrary
 Library    Collections
 Resource          ../resources/ui_keywords.robot
 Resource          ../resources/db_keywords.robot
-Resource          ../resources/compare_keyword.robot
+Resource          ../resources/compare_keywords.robot
 Resource    ../resources/common.robot
 
 
