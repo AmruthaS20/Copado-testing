@@ -1,5 +1,6 @@
 *** Settings ***
 Library    Collections
+Library    QVision
 Resource  ../resources/db_data.robot  
 
 
@@ -8,37 +9,14 @@ Resource  ../resources/db_data.robot
 
 Get Data From DB
 
-    [Arguments]    ${Case_Number}
-
-    # Get mocked DB row from db_data.robot
-
-    ${row}=    Get From Dictionary    ${DB_DATA}    ${Case_Number}
-
-    # Extract fields correctly
-
-    ${case_no}=     Get From Dictionary    ${row}    Case_Number
-
-    ${name}=        Get From Dictionary    ${row}    Name
-
-    ${subject}=     Get From Dictionary    ${row}    Subject
-
-    ${status}=      Get From Dictionary    ${row}    Status
-
-    ${date_time}=   Get From Dictionary    ${row}    Date_Time
-
-    # Return final dictionary
-
-    ${db_data}=    Create Dictionary
-
-    ...    Case_Number=${case_no}
-
-    ...    Name=${name}
-
-    ...    Subject=${subject}
-
-    ...    Status=${status}
-
-    ...    Date_Time=${date_time}
-
-    RETURN    ${db_data}
- 
+    [Arguments]    ${ui_data}    ${db_data}
+   ${ui_raw}=    Get From Dictionary    ${ui_data}    Name
+   ${db_raw}=    Get From Dictionary    ${db_data}    Name
+   Log    UI RAW: '${ui_raw}'
+   Log    DB RAW: '${db_raw}'
+   # 🔥 Remove ALL whitespace characters (spaces, nbsp, newline, tabs)
+   ${ui_clean}=    Replace Regexp    ${ui_raw}    \\s+    ${EMPTY}
+   ${db_clean}=    Replace Regexp    ${db_raw}    \\s+    ${EMPTY}
+   Log    UI CLEAN: '${ui_clean}'
+   Log    DB CLEAN: '${db_clean}'
+   Should Be Equal As Strings    ${ui_clean}    ${db_clean}
