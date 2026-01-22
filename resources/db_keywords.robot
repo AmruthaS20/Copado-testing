@@ -7,21 +7,29 @@ Resource  ../resources/db_data.robot
 
 Get Data From DB
 
+   *** Keywords ***
+
+Get Data From DB
+
     [Arguments]    ${case_number}
 
-    # Build variable name dynamically
+    # Get mocked DB row from db_data.robot
 
-    ${db_key}=    Set Variable    DB_CASE_${Case_Number}
+    ${row}=    Get From Dictionary    ${DB_DATA}    ${case_number}
 
-    ${case_no}=    Set Variable    ${${db_key}[Case_Number]}
+    # Extract fields correctly
 
-    ${name}=       Set Variable    ${${db_key}[Name]}
+    ${case_no}=     Get From Dictionary    ${row}    Case_Number
 
-    ${subject}=    Set Variable    ${${db_key}[Subject]}
+    ${name}=        Get From Dictionary    ${row}    Name
 
-    ${status}=     Set Variable    ${${db_key}[Status]}
+    ${subject}=     Get From Dictionary    ${row}    Subject
 
-    ${date_time}=  Set Variable    ${${db_key}[Date_Time]}
+    ${status}=      Get From Dictionary    ${row}    Status
+
+    ${date_time}=   Get From Dictionary    ${row}    Date_Time
+
+    # Return final dictionary
 
     ${db_data}=    Create Dictionary
 
@@ -34,8 +42,6 @@ Get Data From DB
     ...    Status=${status}
 
     ...    Date_Time=${date_time}
-
-    Log    DB Data: ${db_data}
 
     RETURN    ${db_data}
  
