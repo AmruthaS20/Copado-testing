@@ -33,6 +33,11 @@ Compare UI And DB Data
 
     Log    DB CLEAN: '${db_clean}'
 
-    Should Be Equal As Strings    ${ui_clean}    ${db_clean}
- 
+    #Should Be Equal As Strings    ${ui_clean}    ${db_clean}
+
+     Run Keyword If    '${ui_clean}' != '${db_clean}'
+       ...    Fail     MISMATCH FOUND | Field=${key} | UI='${ui_clean}' | DB='${db_clean}'
+  
+
+          
  
