@@ -3,19 +3,16 @@ Library    Collections
 Resource  ../resources/db_data.robot  
 
 
+
 *** Keywords ***
 
 Get Data From DB
 
-   *** Keywords ***
-
-Get Data From DB
-
-    [Arguments]    ${case_number}
+    [Arguments]    ${Case_Number}
 
     # Get mocked DB row from db_data.robot
 
-    ${row}=    Get From Dictionary    ${DB_DATA}    ${case_number}
+    ${row}=    Get From Dictionary    ${DB_DATA}    ${Case_Number}
 
     # Extract fields correctly
 
