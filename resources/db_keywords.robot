@@ -11,7 +11,7 @@ Get Data From DB
 
     # Build variable name dynamically
 
-    ${db_key}=    Set Variable    DB_CASE_${Case_Number
+    ${db_key}=    Set Variable    DB_CASE_${Case_Number}
 
     ${case_no}=    Set Variable    ${${db_key}[Case_Number]}
 
