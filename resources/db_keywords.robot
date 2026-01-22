@@ -7,26 +7,35 @@ Resource  ../resources/db_data.robot
 
 Get Data From DB
 
+    [Arguments]    ${case_number}
 
-    [Arguments]    ${case_key}
+    # Build variable name dynamically
 
-    ${CASE_NUMBER}=    Set Variable    ${${case_key}[Case_Number]}
+    ${db_key}=    Set Variable    DB_CASE_${case_number}
 
-    ${NAME}=           Set Variable    ${${case_key}[Name]}
+    ${case_no}=    Set Variable    ${${db_key}[Case_Number]}
 
-    ${SUBJECT}=        Set Variable    ${${case_key}[Subject]}
+    ${name}=       Set Variable    ${${db_key}[Name]}
 
-    ${STATUS}=         Set Variable    ${${case_key}[Status]}
+    ${subject}=    Set Variable    ${${db_key}[Subject]}
 
-    ${DATE_TIME}=      Set Variable    ${${case_key}[Date_Time]}
+    ${status}=     Set Variable    ${${db_key}[Status]}
 
-    Set Test Variable    ${DB_CASE_NUMBER}    ${CASE_NUMBER}
+    ${date_time}=  Set Variable    ${${db_key}[Date_Time]}
 
-    Set Test Variable    ${DB_NAME}           ${NAME}
+    ${db_data}=    Create Dictionary
 
-    Set Test Variable    ${DB_SUBJECT}        ${SUBJECT}
+    ...    Case_Number=${case_no}
 
-    Set Test Variable    ${DB_STATUS}         ${STATUS}
+    ...    Name=${name}
 
-    Set Test Variable    ${DB_DATE_TIME}      ${DATE_TIME}
+    ...    Subject=${subject}
+
+    ...    Status=${status}
+
+    ...    Date_Time=${date_time}
+
+    Log    DB Data: ${db_data}
+
+    RETURN    ${db_data}
  
