@@ -40,7 +40,6 @@ Compare UI And DB Data
 
     #for mismatch scinario
           
- Compare UI And DB Data
    [Arguments]    ${ui_data}    ${db_data}
    FOR    ${key}    IN    @{ui_data.keys()}
        ${ui_raw}=    Get From Dictionary    ${ui_data}    ${key}
