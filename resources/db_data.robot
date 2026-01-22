@@ -6,7 +6,7 @@
 
 ...    Case_Number=00001002
 
-...    Name=Skood
+...    Name=SKood
 
 ...    Subject=Caso de ejemplo 3: no es posible realizar un seguimiento de nuestro pedido
 
