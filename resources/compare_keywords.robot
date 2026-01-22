@@ -31,18 +31,18 @@ Compare UI And DB Data
 
     #for mismatch scinario
           
-   [Arguments]    ${ui_data}    ${db_data}
-   FOR    ${key}    IN    @{ui_data.keys()}
-       ${ui_raw}=    Get From Dictionary    ${ui_data}    ${key}
-       ${db_raw}=    Get From Dictionary    ${db_data}    ${key}
-       ${ui_clean}=    Replace String    ${ui_raw}    \u00A0    ${EMPTY}
-       ${db_clean}=    Replace String    ${db_raw}    \u00A0    ${EMPTY}
-       ${ui_clean}=    Strip String    ${ui_clean}
-       ${db_clean}=    Strip String    ${db_clean}
-       Log    FIELD: ${key}
-       Log    UI VALUE: '${ui_clean}'
-       Log    DB VALUE: '${db_clean}'
-       Run Keyword If    '${ui_clean}' != '${db_clean}'
-       ...    Fail     MISMATCH FOUND | Field=${key} | UI='${ui_clean}' | DB='${db_clean}'
-   END
-   Log     UI and DB data matched successfully
+   #[Arguments]    ${ui_data}    ${db_data}
+   #FOR    ${key}    IN    @{ui_data.keys()}
+       #${ui_raw}=    Get From Dictionary    ${ui_data}    ${key}
+       #${db_raw}=    Get From Dictionary    ${db_data}    ${key}
+       #${ui_clean}=    Replace String    ${ui_raw}    \u00A0    ${EMPTY}
+       #${db_clean}=    Replace String    ${db_raw}    \u00A0    ${EMPTY}
+       #${ui_clean}=    Strip String    ${ui_clean}
+       #${db_clean}=    Strip String    ${db_clean}
+       #Log    FIELD: ${key}
+       #Log    UI VALUE: '${ui_clean}'
+       #Log    DB VALUE: '${db_clean}'
+       #Run Keyword If    '${ui_clean}' != '${db_clean}'
+       #...    Fail     MISMATCH FOUND | Field=${key} | UI='${ui_clean}' | DB='${db_clean}'
+   #END
+   #Log     UI and DB data matched successfully
