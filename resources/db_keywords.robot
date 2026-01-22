@@ -1,6 +1,6 @@
 *** Settings ***
 Library    Collections
-Library    Dtring
+Library    String
 Resource  ../resources/db_data.robot  
 
 
