@@ -38,6 +38,23 @@
 
   Dictionary does not contain key 'subject'
   this behavior is intentional and validates UI DB inconsistency handling.
+
+
+  | UI Field Label | UI Key Used in Test | DB Column | Present in DB | Remarks |
+
+|---------------|-------------------|-----------|---------------|---------|
+
+| Case Number   | Case_Number       | case_number | Yes | Direct UI DB mapping |
+
+| Name          | Name              | name        | Yes | Direct UI DB mapping |
+
+| Status        | Status            | status      | Yes | Normalized before comparison |
+
+| Subject       | subject           | N/A       | N/A  | N/A  |
+
+
+
+
  
 
  ### Test Behavior
