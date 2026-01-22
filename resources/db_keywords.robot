@@ -1,6 +1,6 @@
 *** Settings ***
 Library    Collections
-Library    QVision
+Library    Dtring
 Resource  ../resources/db_data.robot  
 
 
