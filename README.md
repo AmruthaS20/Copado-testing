@@ -53,11 +53,7 @@
 | Subject       | subject           | N/A       | N/A  | N/A  |
 
 
-
-
- 
-
- ### Test Behavior
+### Test Behavior
 - The test iterates through UI keys.
 - For each key, it attempts to fetch the corresponding DB value.
 - If the DB key is missing, the test fails with a clear message.
@@ -65,7 +61,7 @@
 
 ### Execution Evidence
 
-- The dictionary lookup succeeds for key `Case_Number`.
+- The dictionary lookup succeeds for key 
  - No errors are thrown during DB value retrieval.
 - Comparison passes without mismatch.
 - Test iteration for this field is marked as PASSED.
