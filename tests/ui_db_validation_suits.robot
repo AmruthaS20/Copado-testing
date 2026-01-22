@@ -28,8 +28,8 @@ UI_DB_Validation_Test
    Click Text      Cases
 
    ${ui_data}=    Get UI Case Data
-    Log           ${ui_data}
+
+    ${db_data}=    Get Data From DB    00001002
+
+    Compare UI And DB Data    ${ui_data}    ${db_data}
  
-   ${db_data}=    Get Data From DB    ${ui_data}[Case_Number]
-   Log            ${db_data}
-   Compare UI And DB Data    ${ui_data}    ${db_data}
