@@ -13,4 +13,14 @@
 ...    Status=En espera
 
 ...    Date_Time=12/22/2025, 7:09 AM
- 
+
+...    Amount= 30000
+
+...    transaction_ID=34567892
+
+...    product=vaccine
+
+...    delivery_date= 12/02/2026
+
+...    ID=cax5678534
+
