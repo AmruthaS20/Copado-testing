@@ -10,7 +10,7 @@ Get Data From DB
 
     [Arguments]    ${case_number}
 
-    # Get mocked DB row from db_data.robot
+    # Get  DB row from github
 
     ${row}=    Get From Dictionary    ${DB_DATA}    ${case_number}
 
